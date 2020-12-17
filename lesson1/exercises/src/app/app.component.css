@@ -1,0 +1,10 @@
+.container {
+    background-image: url("http://thepatternlibrary.com/img/h.jpg");
+    background-repeat: initial;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto
+}
