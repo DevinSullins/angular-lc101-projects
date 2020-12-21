@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./candidates.component.css']
 })
 export class CandidatesComponent implements OnInit {
-   missionName = "LaunchCode Moonshot"
+  missionName = "LaunchCode Moonshot"
 
-   candidates = [
+  candidates = [
     {name: 'Rusty Rutabaga', data: {age: 5, mass: '0.75 kg', sidekick: 'Blake'}, image: 'assets/images/Blake.png'},
     {name: 'Tessa Tortoise', data: {age: 126, mass: '113 kg', sidekick: 'Sally'}, image: 'assets/images/Sally.png'},
     {name: 'Bernie Beagle', data: {age: 4, mass: '15 kg', sidekick: 'Paul'}, image: 'assets/images/Paul.png'},
@@ -17,16 +17,36 @@ export class CandidatesComponent implements OnInit {
   ];
 
   crew = [];
+  selection: object = {};
+  selected: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
   }
-
+    
+  selector (selection){
+    this.selection = selection;
+    this.selected = true;
+  }
+  clearButtonClick(){
+    this.selected = false;
+  }
   // Code the addToCrew function here:
-
+  addToCrew (crewMemberObj) {
+    if(!this.crew.includes(crewMemberObj)){
+      this.crew.push(crewMemberObj);
+    };
+  };
+  clearCrewList(){
+    this.crew = []
+  };
 
   // BONUS: Code the changeMissionName function here:
-
+changeMissionName(newName: string, editMissionName){
+  this.missionName = newName.value;
+  editMissionName = false;
+  console.log(this.missionName)
+}
 
 }
